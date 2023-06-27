@@ -1,12 +1,17 @@
 import { addFormDom, addBookBtn } from "./bookData.js"
+//const formElement = document.querySelector('book-form')
+//const formData = new FormData(formElement)
 
 let myLibrary = []
-document.addEventListener('DOMContentLoaded', addBookBtn)
+document.addEventListener('DOMContentLoaded', addBookBtn, addFormDom())
 document.addEventListener('click', function(e) {
     if(e.target.matches('.add-btn')) {
-        addFormDom()
+        document.querySelector('.form-overlay').classList.toggle('show-overlay')
+    } if(e.target.dataset.overlay){
+        document.querySelector('.form-overlay').classList.remove('.show-overlay')
     }
 })
+
 
 function Book(bookName, author, numPages) {
     this.bookName = bookName
