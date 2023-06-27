@@ -8,15 +8,17 @@ function addFormDom() {
             </form>
         </div>`
 
-        return formTemplate
+        document.querySelector('.form-here').innerHTML = formTemplate
 }
 
-function addBookBtn() {
+function addBookBtn(e) {
     let addBtn = `
         <div class="btn-wrapper">
             <button class="add-btn">Add Book</button>
         </div>`
-    return addBtn
+    
+
+    document.querySelector('.btn-here').innerHTML = addBtn
 }
 
 export {addFormDom, addBookBtn}
