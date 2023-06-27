@@ -1,4 +1,7 @@
+import { addFormDom, addBookBtn } from "./bookData"
+
 let myLibrary = []
+document.addEventListener('onLoad', addBookBtn)
 
 function Book(bookName, author, numPages) {
     this.bookName = bookName
@@ -19,5 +22,5 @@ function addBookToLibrary() {
     }  
 }
 
-console.log(Book)
+console.log()
 document.querySelector('.main').innerHTML = addBookToLibrary()
