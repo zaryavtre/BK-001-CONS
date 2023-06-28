@@ -1,11 +1,16 @@
 body {
     height: 100%;
+    background-color: rgb(241, 241, 241);
 }
 
 input {
     border-radius: 1em;
     padding: 1em;
     border: 2px solid turquoise;
+}
+
+.main {
+    padding: 1em;
 }
 
 .form-overlay {
@@ -31,4 +36,19 @@ input {
     justify-content: center;
     flex-direction: column;
     gap: 1em;
+}
+
+.book-here {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1em;
+    margin: 1em 0 1em 0;
+}
+
+.books {
+    padding: 1em;
+    background-color: white;
+    border-radius: 1em;
+    min-width: 235px;
 }

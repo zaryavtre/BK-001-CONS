@@ -1,7 +1,5 @@
 import { addFormDom, addBookBtn } from "./bookData.js"
-//const formElement = document.querySelector('book-form')
-//const formData = new FormData(formElement)
-
+let bookIndex = 0
 let myLibrary = []
 document.addEventListener('DOMContentLoaded', addBookBtn, addFormDom())
 document.addEventListener('click', function(e) {
@@ -17,21 +15,23 @@ function Book(bookName, author, numberOfPages) {
     this.bookName = bookName
     this.author = author
     this.numberOfPages = numberOfPages
+    this.index = bookIndex++
+
 }
 
 const newBook = new Book('Game', 'Olissip', 124)
 const secBook = new Book('Mount Doom', 'Fior', 545)
 
-myLibrary.push(newBook, secBook)
+myLibrary.push(newBook, secBook) 
 
 function renderBook() {
     let bookTemplate = ''
     myLibrary.forEach((book) => {
         bookTemplate += `
-        <div class="books">
+        <div class="books" book-attribute="main-book">
             <p class="book_name">${book.bookName}</p>
-            <p class="book_name">${book.author}</p>
-            <p class="book_name">${book.numberOfPages}</p>
+            <p class="book_author">${book.author}</p>
+            <p class="book_num-page">${book.numberOfPages}</p>
         </div>
         `
     })
@@ -49,4 +49,3 @@ function addBookToLibrary() {
 }
 
 console.log()
-//document.querySelector('.main').innerHTML = addBookToLibrary()
