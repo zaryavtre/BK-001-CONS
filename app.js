@@ -13,17 +13,33 @@ document.addEventListener('click', function(e) {
 })
 
 
-function Book(bookName, author, numPages) {
+function Book(bookName, author, numberOfPages) {
     this.bookName = bookName
     this.author = author
-    this.numberOfPages = numPages
-
+    this.numberOfPages = numberOfPages
 }
 
 const newBook = new Book('Game', 'Olissip', 124)
 const secBook = new Book('Mount Doom', 'Fior', 545)
 
 myLibrary.push(newBook, secBook)
+
+function renderBook() {
+    let bookTemplate = ''
+    myLibrary.forEach((book) => {
+        bookTemplate += `
+        <div class="books">
+            <p class="book_name">${book.bookName}</p>
+            <p class="book_name">${book.author}</p>
+            <p class="book_name">${book.numberOfPages}</p>
+        </div>
+        `
+    })
+
+    document.querySelector('.book-here').innerHTML = bookTemplate
+}
+
+renderBook()
 
 function addBookToLibrary() {
     let template = ''
