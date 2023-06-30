@@ -1,14 +1,15 @@
 import { addFormDom, addBookBtn } from './bookData.js'
+import { toggle, removeToggle } from './utils.js'
 let bookIndex = 0
 let myLibrary = []
 document.addEventListener('DOMContentLoaded', addBookBtn, addFormDom())
 document.addEventListener('click', function (e) {
   e.preventDefault()
   if (e.target.matches('.add-btn')) {
-    document.querySelector('.form-overlay').classList.toggle('show-overlay')
+    toggle()
   }
-  if (e.target.dataset.overlay) {
-    document.querySelector('.form-overlay').classList.remove('.show-overlay')
+  if (e.target.matches('.form-overlay')) {
+   removeToggle()
   }
   if (e.target.matches('.sub-btn')) {
     inputBook()
@@ -35,6 +36,7 @@ function inputBook() {
 
   myLibrary.push(newBooks)
   console.log(myLibrary)
+  document.querySelector('.form-overlay').classList.remove('show-overlay')
   renderBook()
 }
 
