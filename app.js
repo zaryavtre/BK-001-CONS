@@ -1,7 +1,8 @@
 import { addFormDom, addBookBtn } from './bookData.js'
 import { toggle, removeToggle } from './utils.js'
-let bookIndex = 0
+let bookIndex = 1
 let myLibrary = []
+
 document.addEventListener('DOMContentLoaded', addBookBtn, addFormDom())
 document.addEventListener('click', function (e) {
   e.preventDefault()
@@ -13,6 +14,8 @@ document.addEventListener('click', function (e) {
   }
   if (e.target.matches('.sub-btn')) {
     inputBook()
+  } if (e.target.dataset.removebook) {
+    removeBk(e.target.dataset.removebook)
   }
 })
 
@@ -31,23 +34,40 @@ myLibrary.push(newBook, secBook)
 function inputBook() {
   const formBookName = document.querySelector('#book-name').value
   const formBookAuthor = document.querySelector('#book-author').value
-  const formBookPages = document.querySelector('#book-pages').value
+  const formBookPages = parseInt(document.querySelector('#book-pages').value)
   const newBooks = new Book(formBookName, formBookAuthor, formBookPages)
 
   myLibrary.push(newBooks)
   console.log(myLibrary)
-  document.querySelector('.form-overlay').classList.remove('show-overlay')
+  removeToggle()
   renderBook()
+}
+
+function removeBk(removeId) {
+    const getBookId = myLibrary.map(function(getId) {
+        return getId.index
+    }).indexOf(removeId)
+
+    myLibrary.splice(getBookId, 1)
+    const currentBook = document.querySelector(`.books[data-book="${removeId}"]`)
+    
+
+    console.log(getBookId)
+
+    renderBook()
+
+
 }
 
 function renderBook() {
   let bookTemplate = ''
   myLibrary.forEach((book) => {
     bookTemplate += `
-        <div class="books" book-attribute="main-book">
+        <div class="books" data-book="${book.index}">
             <p class="book_name">${book.bookName}</p>
             <p class="book_author">${book.author}</p>
             <p class="book_num-page">${book.numberOfPages}</p>
+            <button data-removebook="remove-book" class="remove-book">Remove Book</button>
         </div>
         `
   })
