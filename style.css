@@ -1,13 +1,26 @@
 body {
     height: 100%;
-    background-color: rgb(241, 241, 241);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #C1C1C1;
+    font-family: 'Rubik', sans-serif;
 }
 
 input {
     border-radius: 1em;
     padding: 1em;
     border: 2px solid turquoise;
+}
+
+h1 {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 2em;
+    color: #8B80F9;
+}
+
+button {
+    outline: none;
+    background-color: transparent;
+    border: none;
 }
 
 .main {
@@ -74,4 +87,34 @@ input {
     background-color: white;
     border-radius: 1em;
     min-width: 235px;
+}
+
+.remove-book {
+    border: 1.5px solid #251F47;
+    border-radius: 1em;
+    padding: 0.5em 1em 0.5em 1em;
+    transition: all 300ms;
+    box-sizing: border-box;
+    font-weight: 400;
+}
+
+.remove-book:hover {
+    background-color: #8B80F9;
+    border: 1.5px solid #8B80F9;
+    color: white;
+}
+
+.add-btn {
+    border: 1.5px solid #8B80F9;
+    border-radius: 1em;
+    padding: 0.5em 1em 0.5em 1em;
+    transition: all 300ms;
+    box-sizing: border-box;
+    font-weight: 400;
+    background-color: #8B80F9;
+    color: white;
+}
+
+.add-btn:hover {
+box-shadow: #251F47;
 }
